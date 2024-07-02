@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.celestial.com</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        
+    
+      *{
+        
+        background-color: black
+      }   
+      
+      button{
+        color: white;
+        size: 60px;
+        margin-top: 40px;
+        padding: 30px;
+        font-size: 20px;
+        box-shadow: #444;
+      }
+        body {
+            margin: 0;
+            font-family: Garamond;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+             overflow: scroll;  
+        }
+
+        h1 {
+            margin: 20px;
+            font-size: 4em;
+            font-family: serif;
+        }
+
+        #planet-visualization {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0%;
+            
+            overflow: hidden; /* Ensuring no scrollbars within the visualization container */
+        }
+
+        #tooltip {
+            position: absolute;
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .container {
+            font-size: 6px;
+            width: 40em;
+            height: 40em;
+            position: relative; 
+        }
+   
+        #tooltip img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+#tooltip strong {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#tooltip p {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+        .sun,
+        .mercury::before,
+        .venus::before,
+        .earth::before,
+        .moon::before,
+        .mars::before,
+        .jupiter::before,
+        .saturn::before,
+        .uranus::before,
+        .neptune::before {
+            background-size: cover;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 20;
+            left: 0;
+            top: 0;
+            /* width: 100%;
+            height: 100%; */
+            overflow: scroll;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #000000;
+            margin: auto;
+            padding: 10px;
+            /* border: 1px solid #888; */
+            width: 80%;
+            max-width: 700px;
+        }
+        .planet-item img{
+            text-align: center;
+            font-size: 50px;
+            
+            width: 300px;
+            height: 300px;
+         border-radius: 50%;
+           display: block;
+          margin: 0 auto;
+          transform: rotate(0deg); /* Start with no rotation */
+            transition: transform 0.5s ease; /* Smooth rotation transition */
+            transform-origin: center; /* Center of the circle */
+            animation: rotate 15s linear infinite; /* Rotate animation for 15s */
+          
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg); /* Rotate 360 degrees */
+            }
+        }
+       
+
+        .planet-item img:hover {
+            transform: rotate(360deg); /* Rotate 360 degrees on hover */
+            box-shadow: #444;
+        }
+
+        .planet-name {
+            font-size: 30px;
+            font-family: serif;
+            text-align: left;
+        }
+        #navbarNav{
+     padding-right: 20px;
+     margin-right: 0px;
+     color: #110e0e;
+     padding-left: 70px;
+     text-align: center;
+     
+    
+   }
+    </style>
+</head>
+<body>
+    <h1>The Solar System</h1>
+    <div id="planet-visualization"></div>
+     <div class="modal-content">
+       
+        <ul class="planet-list">
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/sun.png" alt="Sun">
+                <span class="planet-name">Sun</span>
+                <p>Distance from Earth: About 93 million miles (150 million kilometers)<br>
+                    Diameter: Approximately 1.39 million kilometers<br>
+                    Mass: About 330,000 times that of Earth<br>
+                    Gravity: 27.9 times that of Earth<br>
+                    Composition: Mostly hydrogen and helium<br>
+                    Temperature: Core temperature reaches up to 27 million°F (15 million°C)<br>
+                    Surface Temperature: Around 10,000°F (5,500°C)<br>
+                    Age: Estimated to be around 4.6 billion years<br>
+                </p>
+            </li>
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/mercury.png" alt="Mercury">
+                <span class="planet-name">Mercury</span>
+                <p>Closest to the Sun.<br>
+                    Smallest planet in our solar system.<br>
+                    Average distance from the Sun: 57.9 million kilometers.<br>
+                    No moons.<br>
+                    Thin atmosphere composed mostly of oxygen, sodium, and hydrogen.<br>
+                    Weak gravitational pull.<br>
+                    
+                    
+
+                </p>
+            </li>
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/venus.png" alt="Venus">
+                <span class="planet-name">Venus</span>
+                <p>
+                    Second planet from the Sun.<br>
+Similar in size and structure to Earth.<br>
+Average distance from the Sun: 108.2 million kilometers.<br>
+No moons.<br>
+Thick, toxic atmosphere with clouds of sulfuric acid.<br>
+Surface temperature can exceed 460°C due to a strong greenhouse effect.<br>
+                </p>
+            </li>
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/earth.png" alt="Earth">
+                <span class="planet-name">Earth</span>
+                <p>
+                    Third planet from the Sun.<br>
+Only astronomical object known to support life.<br>
+Average distance from the Sun: 149.6 million kilometers.<br>
+One moon.<br>
+Atmosphere composed mainly of nitrogen and oxygen.<br>
+Supports vast water bodies, including oceans.<br>
+                </p>
+            </li>
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/mars.png" alt="Mars">
+                <span class="planet-name">Mars</span><p>
+                Distance from the Sun: 142 million miles (228 million kilometers)<br>
+Diameter: 4,220 miles (6,779 kilometers)<br>
+Mass: 0.107 times that of Earth<br>
+Gravity: 0.377 times that of Earth<br>
+Atmosphere: Thin, composed mostly of carbon dioxide<br>
+Temperature: -195°F to 70°F -125°C to 20°C</p>
+            </li>
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/jupiter.png" alt="Jupiter">
+                <span class="planet-name">Jupiter</span><p>
+                Distance from the Sun: 484 million miles (778 million kilometers)<br>
+Diameter: 86,881 miles (139,822 kilometers)<br>
+Mass: 318 times that of Earth<br>
+Gravity: 2.528 times that of Earth<br>
+Atmosphere: Composed mostly of hydrogen and helium<br>
+Temperature: -234°F (-145°C)</p>
+            </li>
+            <li class="planet-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFP20v01NX_VSEBPsXSWbxSTW4PEIxBM9qx-KM0ZoCdrWeAcqQgrr8bs5cshYy-_DKyHc&usqp=CAU" alt="Saturn">
+                <span class="planet-name">Saturn</span><p>
+                Distance from the Sun: 888 million miles (1.4 billion kilometers)<br>
+Diameter: 72,366 miles (116,460 kilometers)<br>
+Mass: 95 times that of Earth<br>
+Gravity: 1.065 times that of Earth<br>
+Atmosphere: Composed mostly of hydrogen and helium<br>
+Temperature: -288°F (-178°C)</p>
+
+            </li>
+            
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/uranus.png" alt="Uranus">
+                <span class="planet-name">Uranus</span><p>
+                Distance from the Sun: 1.8 billion miles (2.9 billion kilometers)<br>
+Diameter: 31,518 miles (50,724 kilometers)<br>
+Mass: 14.5 times that of Earth<br>
+Gravity: 0.886 times that of Earth<br>
+Atmosphere: Composed mostly of hydrogen, helium, and methane<br>
+Temperature: -357°F (-214°C) </p>
+            </li>
+            <li class="planet-item">
+                <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/neptune.png" alt="Neptune">
+                <span class="planet-name">Neptune</span><p>
+                Distance from the Sun: 2.8 billion miles (4.3 billion kilometers)<br>
+Diameter: 30,598 miles (49,244 kilometers)<br>
+Mass: 17 times that of Earth<br>
+Gravity: 1.137 times that of Earth<br>
+Atmosphere: Composed mostly of hydrogen, helium, and methane<br>
+Temperature: -353°F (-214°C)</p>
+            </li>
+            
+        </ul></nav>
+    
+    </div>
+   
+
+        <div class="planet-item">
+    <div id="planet-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="planet-name"></h2>
+            <img id="planet-image" alt="Planet image">
+            <p id="planet-description"></p>
+        </div>
+    
+    </div>
+
+   
+              <a href="project.htm">
+                <button type="submit" class="btn btn-light "> Animated Planet rotation</button></a>
+           
+        </div>
+    </section>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            createPlanetVisualization();
+        });
+
+        function createPlanetVisualization() {
+            const width = document.getElementById('planet-visualization').clientWidth;
+            const height = 600;
+
+            const svg = d3.select("#planet-visualization")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            const celestialBodies = [
+                {
+                    name: "Sun",
+                    radius: 200,
+                    distance: 190,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/sun.png",
+                    description: "The Sun is the star at the center of our solar system."
+                },
+                {
+                    name: "Mercury",
+                    radius: 32,
+                    distance: 390,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/mercury.png",
+                    description: "Mercury is the smallest planet in our solar system and closest to the Sun."
+                },
+                {
+                    name: "Venus",
+                    radius: 36,
+                    distance: 480,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/venus.png",
+                    description: "Venus is the second planet from the Sun and has a thick, toxic atmosphere."
+                },
+                {
+                    name: "Earth",
+                    radius: 40,
+                    distance: 580,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/earth.png",
+                    description: "Earth is the third planet from the Sun and the only astronomical object known to harbor life."
+                },
+                {
+                    name: "Mars",
+                    radius: 36,
+                    distance: 680,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/mars.png",
+                    description: "Mars is the fourth planet from the Sun and is often referred to as the 'Red Planet'."
+                },
+                {
+                    name: "Jupiter",
+                    radius: 56,
+                    distance: 790,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/jupiter.png",
+                    description: "Jupiter is the largest planet in our solar system and has a Great Red Spot."
+                },
+                {
+                    name: "Saturn",
+                    radius: 67,
+                    distance: 920,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/saturn.png",
+                    description: "Saturn is the sixth planet from the Sun and is known for its prominent ring system."
+                },
+                {
+                    name: "Uranus",
+                    radius: 38,
+                    distance: 1050,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/uranus.png",
+                    description: "Uranus is the seventh planet from the Sun and has a unique sideways rotation."
+                },
+                {
+                    name: "Neptune",
+                    radius: 39,
+                    distance: 1160,
+                    image: "https://www.solarsystemscope.com/spacepedia/images/handbook/renders/neptune.png",
+                    description: "Neptune is the eighth planet from the Sun and is known for its strong winds."
+                }
+            ];
+
+            const zoom = d3.zoom()
+                .scaleExtent([1, 10])
+                .on("zoom", (event) => {
+                    svg.attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+
+            const defs = svg.append("defs");
+
+            celestialBodies.forEach((body, index) => {
+                defs.append("pattern")
+                    .attr("id", `pattern-${index}`)
+                    .attr("patternUnits", "objectBoundingBox")
+                    .attr("width", 1)
+                    .attr("height", 1)
+                    .append("image")
+                    .attr("href", body.image)
+                    .attr("width", body.radius * 2)
+                    .attr("height", body.radius * 2)
+                    .attr("x", 0)
+                    .attr("y", 0);
+            });
+
+            const g = svg.append("g");
+
+            g.selectAll("circle")
+                .data(celestialBodies)
+                .enter()
+                .append("circle")
+                .attr("cx", d => d.distance)
+                .attr("cy", height / 2)
+                .attr("r", d => d.radius)
+                .attr("fill", (d, i) => `url(#pattern-${i})`)
+                .on("mouseover", (event, d) => {
+                    const [x, y] = d3.pointer(event);
+                    showTooltip(d, x, y);
+                })
+                .on("mousemove", (event, d) => {
+                    const [x, y] = d3.pointer(event);
+                    moveTooltip(x, y);
+                })
+                .on("mouseout", hideTooltip);
+
+            function showTooltip(body, x, y) {
+                const tooltip = d3.select("#tooltip")
+                    .style("left", `${x + 15}px`)
+                    .style("top", `${y + 15}px`)
+                    .style("display", "block");
+
+                tooltip.html(`
+                    <img src="${body.image}" alt="${body.name}">
+                    <strong>${body.name}</strong>
+                    <p>${body.description}</p>
+                `);
+            }
+
+            function moveTooltip(x, y) {
+                d3.select("#tooltip")
+                    .style("left", `${x + 15}px`)
+                    .style("top", `${y + 15}px`);
+            }
+
+            function hideTooltip() {
+                d3.select("#tooltip")
+                    .style("display", "none");
+            }
+
+            d3.select("#planet-visualization").append("div").attr("id", "tooltip");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<head>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            background: linear-gradient(45deg, #000000, #000000);
+            padding: 15px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        
+        /* Main CSS */
+        .grid-wrapper > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .grid-wrapper > div > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .grid-wrapper {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 200px;
+            grid-auto-flow: dense;
+        }
+        
+        .grid-wrapper .wide {
+            grid-column: span 2;
+        }
+        
+        .grid-wrapper .tall {
+            grid-row: span 2;
+        }
+        
+        .grid-wrapper .big {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+    </style>
+</head>
+
+<div class="grid-wrapper">
+    <div class="tall">
+        <img src="https://img.freepik.com/free-photo/space-galaxy-background_53876-93121.jpg?t=st=1718189571~exp=1718193171~hmac=c2a3d3e562016232dd43b36656dcd8dae58aefc282f0c69b019a2d8623f6f4e0&w=996" alt="">
+    </div>
+    <div class="big">
+        <img src="https://img.freepik.com/free-photo/space-background-with-stardust-shining-stars-realistic-colorful-cosmos-with-nebula-milky-way_1258-150925.jpg?t=st=1718189214~exp=1718192814~hmac=9eb1293a6a87fab069153baa4db77864584ed1288c27d4e21bade198c5912357&w=740" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-photo/glowing-spaceship-orbits-planet-starry-galaxy-generated-by-ai_188544-9655.jpg?t=st=1718189395~exp=1718192995~hmac=8e5e9b8755c9ca7d2a566030b6d737a71d3973f795279d2d893bb5c867a853a7&w=1060" alt="">
+    </div>
+    <div class="wide">
+        <img src="https://img.freepik.com/free-photo/glowing-star-field-illuminates-dark-galaxy-backdrop-generated-by-ai_188544-9646.jpg?t=st=1718189465~exp=1718193065~hmac=637436bec8ba990c7a1b7b8af4cb3e3b485eb57a1d17d54010a3b57a93f7df00&w=1060" alt="">
+    </div>
+    <div class="big">
+        <img src="https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg?t=st=1718189352~exp=1718192952~hmac=dcce794e3e978d1bc0586db1c2fe09657d84d5766f5217127a3fcf24c753e674&w=996" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-photo/digital-art-galaxy_23-2151050679.jpg?t=st=1718188832~exp=1718192432~hmac=2b16a92069e7d7de482bd4785fcf161974bc203b2da510d7f50e84448bd45404&w=740" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-photo/fictional-planet-with-colourful-night-sky-stars-nebula_1048-7926.jpg?t=st=1718189260~exp=1718192860~hmac=797ad1b0032e983006a362ca237431342e2306e34fb9a619f486b683a27637d5&w=826" alt="">
+    </div>
+    <div class="tall">
+        <img src="https://img.freepik.com/free-photo/vertical-shot-sea-starry-sky-with-milky-way_181624-4770.jpg?t=st=1718189291~exp=1718192891~hmac=081af9c4408cf66ae0bbba0ae97aa5d0516aebc496668b03de942d4c523ff71a&w=740" alt="">
+    </div>
+    <div class="wide">
+        <img src="https://img.freepik.com/free-photo/fantasy-style-galaxy-background_23-2151114393.jpg?t=st=1718189314~exp=1718192914~hmac=3397dd8949baf064b77081bac422fbf3f83a1f3780d2949aef7338661211eb16&w=1380" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-photo/night-sky-glows-with-iridescent-deep-space-generative-ai_188544-11285.jpg?t=st=1718189611~exp=1718193211~hmac=0d3f0a5d3426b8fa192b488efadf79ffc154dd1f048cb0e80ec5936118a26458&w=1060" alt="">
+    </div>
+    
+    <div class="tall">
+        <img src="https://img.freepik.com/free-photo/photorealistic-galaxy-background_23-2151064440.jpg?t=st=1718189648~exp=1718193248~hmac=4d68bb5953d56ec8337a65c7ea15e1bb1941318c19925125ce16d0fd6f8f8676&w=900" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-photo/space-background-realistic-starry-night-cosmos-shining-stars-milky-way-stardust-color-galaxy_1258-154750.jpg?t=st=1718189676~exp=1718193276~hmac=4fbfc2cb1a063a19211f2ba81563c90607910c4e476abb216fe7b06064d05d49&w=996" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-photo/beautiful-galactic-core-milky-way-with-rho-ophiuchi-cloud-complex-long-exposure-photograph_1150-21743.jpg?t=st=1718189709~exp=1718193309~hmac=0bf1db192bd1cc2fe39698eb7ddfbbfb78f004fd9a0f9f47e018e47343860ff5&w=996" alt="">
+    </div> 
+    <div>
+        <img src="https://img.freepik.com/free-photo/milky-way-full-stars-space_181624-2599.jpg?t=st=1718189728~exp=1718193328~hmac=b3014245662bf51a2bb68e1df17278575716ca6104123733703222522f5b7a2b&w=996" alt="">
+    </div>
+     <div>
+        <img src="https://img.freepik.com/free-photo/photorealistic-galaxy-background_23-2151064351.jpg?t=st=1718189746~exp=1718193346~hmac=9d8e9d8512a463d36d49276ca234a98408e632f36e2363015bb9e70461f92ada&w=900" alt="">
+    </div>
+   
+    <div class="wide">
+        <img src="https://img.freepik.com/free-photo/planets-solar-system-universe_52683-104312.jpg?t=st=1718189821~exp=1718193421~hmac=2b15748d252fffbad7260401bf5966b7ec8d67573b197d54c48a1fa3c20eff31&w=360" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-vector/hand-painted-watercolour-night-sky-background_1048-16653.jpg?t=st=1718189851~exp=1718193451~hmac=99521c3155225666328624edcf5a18f2a6329b0a4dd4a1724fff69cc32352e35&w=996" alt="">
+    </div> 
+    <div>
+        <img src="https://img.freepik.com/premium-photo/milky-way-galaxy-with-stars-nebulae_118124-43662.jpg?w=360" alt="">
+    </div>
+    <div class="wide">
+        <img src="https://img.freepik.com/free-photo/snowy-mountain-peak-starry-galaxy-majesty-generative-ai_188544-9650.jpg?t=st=1718189926~exp=1718193526~hmac=961f8e7b4e847b24d2756e6665ae6fccc0f113c390347a0c02a6c3a3441b91fa&w=1060" alt="">
+    </div>
+    <div>
+        <img src="https://img.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg?t=st=1718189952~exp=1718193552~hmac=b3f59ff76c4ddb45d2305daea765f8e8ff8ea9652aa6de3225248479d204673b&w=996" alt="">
+    </div>
+    <div class="wide">
+            <img src="https://img.freepik.com/free-photo/spaceship-orbits-dark-galaxy-glowing-blue-comet-generated-by-ai_188544-9662.jpg?t=st=1718189983~exp=1718193583~hmac=51a7980e83b7ab6cd7f61c3c677ef66a65a5d3e3a2a206200a517808954a9d1a&w=1060" alt="">
+        </div>
+    <div class="big">
+            <img src="https://img.freepik.com/free-photo/night-sky-glows-with-iridescent-deep-space-generative-ai_188544-11285.jpg?t=st=1718189611~exp=1718193211~hmac=0d3f0a5d3426b8fa192b488efadf79ffc154dd1f048cb0e80ec5936118a26458&w=1060" alt="">
+        </div>
+        <div>
+            <img src="https://img.freepik.com/premium-photo/fractal-3d-illustration-alien-creature-space_1015980-204851.jpg?w=740" alt="">
+        </div>
+        <div>
+            <img src="https://img.freepik.com/free-vector/realistic-galaxy-background_52683-12122.jpg?t=st=1718189952~exp=1718193552~hmac=b3f59ff76c4ddb45d2305daea765f8e8ff8ea9652aa6de3225248479d204673b&w=996" alt="">
+        </div>
+        <div class="">
+                <img src="https://img.freepik.com/free-photo/spaceship-orbits-dark-galaxy-glowing-blue-comet-generated-by-ai_188544-9662.jpg?t=st=1718189983~exp=1718193583~hmac=51a7980e83b7ab6cd7f61c3c677ef66a65a5d3e3a2a206200a517808954a9d1a&w=1060" alt="">
+            </div>
+        <div class="">
+                <img src="https://img.freepik.com/free-photo/night-sky-glows-with-iridescent-deep-space-generative-ai_188544-11285.jpg?t=st=1718189611~exp=1718193211~hmac=0d3f0a5d3426b8fa192b488efadf79ffc154dd1f048cb0e80ec5936118a26458&w=1060" alt="">
+            </div>
+            <div>
+                <img src="https://img.freepik.com/premium-photo/fractal-3d-illustration-alien-creature-space_1015980-204851.jpg?w=740" alt="">
+            </div>
+            <div>
+                <img src="https://img.freepik.com/free-photo/one-person-hiking-mountain-peak-admiring-milky-way-galaxy-generated-by-ai_24640-93611.jpg?t=st=1718190410~exp=1718194010~hmac=804ec342cac090f922bb56bba08ac335d54df9f9cec234e9437545eb4c999731&w=1060" alt="">
+            </div>
+        
+      
+</div>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       
+
+         .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    justify-content: flex-start;
+  }
+  
+  .item {
+    margin: 10px;
+  }
+
+  .space-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .space-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.item {
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.space-image {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.3s ease;
+    width:400px;
+    height:400px;
+}
+
+.info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.info h3 {
+    margin-top: 0;
+}
+
+.info p {
+    margin-bottom: 0;
+}
+
+.info.show {
+    opacity: 1;
+}
+
+
+    </style>
+</head>
+<body>
+ 
+    <div id="app">
+        <div class="gallery">
+            <div v-for="(item, index) in items" :key="index" class="item" @mouseenter="showInfo(index)" @mouseleave="hideInfo">
+                <img :src="item.image" :alt="item.name" class="space-image">
+                <div class="info" :class="{ 'show': showInfoIndex === index }">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>new Vue({
+      el: "#app",
+      data: {
+        items: [
+          {
+            name: "Orion Nebula",
+            image:"https://img.freepik.com/free-photo/photorealistic-galaxy-background_23-2151064325.jpg?t=st=1718085924~exp=1718089524~hmac=3a1af61860602c3459eda91286db47dd8651c15802c024f1b6b801f729bb5ec6&w=740",
+            description: "The Orion Nebula is a diffuse nebula situated in the Milky Way, being south of Orion's Belt in the constellation of Orion.",
+          },
+          {
+            name: "Andromeda Galaxy",
+            image: "https://img.freepik.com/free-photo/photorealistic-galaxy-background_23-2151064346.jpg?t=st=1718083372~exp=1718086972~hmac=1903c55a5c1027fe8cfab653fb2953c3322c72988973da4ab06ccfb1b636f299&w=900",
+            description: "The Andromeda Galaxy, also known as Messier 31, M31, or NGC 224, is a barred spiral galaxy located approximately 2.537 million light-years from Earth.",
+          },
+          {
+            name: "Eagle Nebula",
+            image: "https://img.freepik.com/free-photo/fantasy-style-galaxy-background_23-2151114338.jpg?t=st=1718083436~exp=1718087036~hmac=e2c681e5d7e5ba35acdf7beb6bc5f97cc2874a625585e1bae39dc1df0d013496&w=360",
+            description: "The Eagle Nebula is a young open cluster of stars in the constellation Serpens, discovered by Jean-Philippe de Chéseaux in 1745-46.",
+          },
+          {
+            name: "Pleiades Star Cluster",
+            image: "https://img.freepik.com/free-vector/realistic-constellations-zodiac-signs-collection-with-gemini-leo-pisces-sagittarius_1284-33531.jpg?t=st=1718083490~exp=1718087090~hmac=9ef424673997378d3323e1da0e9ce7fd2e3d0884fef16c747ef79cea2d2ad24d&w=740",
+            description: "The Pleiades, also known as the Seven Sisters and Messier 45, are an open star cluster containing middle-aged, hot B-type stars in the north-west of the constellation Taurus.",
+          },
+          {
+      name: "Crab Nebula",
+      image: "https://img.freepik.com/free-photo/photorealistic-galaxy-background_23-2151064338.jpg?t=st=1718083579~exp=1718087179~hmac=45763d405b39410ec99949b236d7cca7ee197a4ef956769e32ae5bd5dfe187d0&w=740",
+      description: "The Crab Nebula is a supernova remnant and pulsar wind nebula in the constellation of Taurus.",
+    },
+    {
+      name: "Sombrero Galaxy",
+      image: "https://t3.ftcdn.net/jpg/04/80/76/48/240_F_480764877_PXCKyA9lKaFLI6FrMSIp03QvoUObRav5.jpg",
+      description: "The Sombrero Galaxy is an unbarred spiral galaxy in the constellation Virgo located 31 million light-years from Earth.",
+    },
+    {
+      name: "Whirlpool Galaxy",
+      image: "https://img.freepik.com/free-photo/digital-art-galaxy_23-2151050633.jpg?t=st=1718083631~exp=1718087231~hmac=00001e5b230a4e9705e18ff9aa140bee4046c50b3766203b096ee78488dfb469&w=740",
+      description: "The Whirlpool Galaxy, also known as Messier 51a, M51a, or NGC 5194, is an interacting grand-design spiral galaxy with a Seyfert 2 active galactic nucleus.",
+    },
+    {
+      name: "Horsehead Nebula",
+      image: "https://img.freepik.com/free-photo/fantasy-style-galaxy-background_23-2151114280.jpg?t=st=1718085020~exp=1718088620~hmac=4d22bd489e2f94c41be21269f38d8a87604bce5c559cfae8d2e3e2c3cd3b0a84&w=996",
+      description: "The Horsehead Nebula is a dark nebula in the constellation Orion. The nebula is located just to the south of the star Alnitak, which is farthest east on Orion's Belt.",
+    },
+        ],
+        showInfoIndex: null,
+      },
+      methods: {
+        showInfo(index) {
+          this.showInfoIndex = index;
+        },
+        hideInfo() {
+          this.showInfoIndex = null;
+        },
+      },
+    });
+    </script>
+</body>
+</html>
